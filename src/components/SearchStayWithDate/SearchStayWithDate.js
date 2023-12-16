@@ -3,20 +3,20 @@ import axios from "axios";
 import { DateSelector } from "../DateSelector/DateSelector";
 import "./SearchStayWithDate.css";
 import { useDate, useCategory } from "../../context";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const SearchStayWithDate = () => {
   const [hotels, setHotels] = useState([]);
-  // const { destination, guests, isSearchResultOpen, dateDispatch } = useDate();
+  const { destination, guests, isSearchResultOpen, dateDispatch } = useDate();
   const { hotelCategory } = useCategory();
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
        
   useEffect(() => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://travel-pro-app.cyclic.app/api/hotels?category=${hotelCategory}`
+          `https://travelapp.cyclic.app/api/hotels?category=${hotelCategory}`
         );
         setHotels(data);
       } catch (err) {
@@ -25,7 +25,7 @@ export const SearchStayWithDate = () => {
     })();
   }, [hotelCategory]);
 
-  /*const handleDestinationChange = (event) => {
+  const handleDestinationChange = (event) => {
     dateDispatch({
       type: "DESTINATION",
       payload: event.target.value,
@@ -71,7 +71,7 @@ export const SearchStayWithDate = () => {
       city.toLowerCase().includes(destination.toLowerCase()) ||
       state.toLowerCase().includes(destination.toLowerCase()) ||
       country.toLowerCase().includes(destination.toLowerCase())
-  );*/
+  );
 
   return (
     <div className="destination-container">
@@ -79,9 +79,9 @@ export const SearchStayWithDate = () => {
         <div className="location-container">
           <label className="label">Where</label>
           <input
-            //value={destination}
-            //onChange={handleDestinationChange}
-            //onFocus={handleDestinationFocus}
+            value={destination}
+            onChange={handleDestinationChange}
+            onFocus={handleDestinationFocus}
             className="input search-dest"
             placeholder="Search Destination"
             autoFocus
@@ -98,25 +98,25 @@ export const SearchStayWithDate = () => {
         <div className="location-container">
           <label className="label">No. of Guests</label>
           <input
-            // value={guests}
+            value={guests}
             className="input search-dest"
             placeholder="Add guests"
-            //onChange={handleGuestChange}
+            onChange={handleGuestChange}
           />
         </div>
         <div
           className="search-container d-flex align-center cursor"
-        //   onClick={handleSearchButtonClick}
+          onClick={handleSearchButtonClick}
         >
           <span className="material-icons-outlined">search</span>
           <span>Search</span>
         </div>
-        <button className="button absolute close-search-dest">
-            {/*<span onClick={handleSearchCloseClick} className="highlight material-icons-outlined">
+        <button className="button absolute close-search-dest"><span onClick={handleSearchCloseClick} className="highlight material-icons-outlined">
           highlight_off
-  </span>*/}</button>
+        </span></button>
       </div>
-        {/*<div className="search-result-container absolute">
+      {isSearchResultOpen && (
+        <div className="search-result-container absolute">
           {destinationOptions &&
             destinationOptions.map(({ address, city }) => (
               <p
@@ -126,7 +126,8 @@ export const SearchStayWithDate = () => {
                 {address}, {city}
               </p>
             ))}
-            </div>*/}
+        </div>
+      )}
     </div>
   );
 };

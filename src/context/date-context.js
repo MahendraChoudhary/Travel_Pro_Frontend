@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
-import { dateReducer } from "../reducers";
+import { dateReducer } from "../reducer";
 
 const initialState = {
   destination: "",
@@ -7,12 +7,12 @@ const initialState = {
   checkInDate: null,
   checkOutDate: null,
   isSearchModalOpen: false,
-  //isSearchResultOpen: true,
+  isSearchResultOpen: true,
 };
 
 const DateContext = createContext(initialState);
 
-const DateProvider = ({ childern }) => {
+const DateProvider = ({ children }) => {
   const [
     {
       destination,
@@ -20,7 +20,7 @@ const DateProvider = ({ childern }) => {
       checkInDate,
       checkOutDate,
       isSearchModalOpen,
-      //isSearchResultOpen,
+      isSearchResultOpen,
     },
     dateDispatch,
   ] = useReducer(dateReducer, initialState);
@@ -33,11 +33,11 @@ const DateProvider = ({ childern }) => {
         checkInDate,
         checkOutDate,
         isSearchModalOpen,
-       // isSearchResultOpen,
+        isSearchResultOpen,
         dateDispatch,
       }}
     >
-      {childern}
+      {children}
     </DateContext.Provider>
   );
 };

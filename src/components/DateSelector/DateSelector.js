@@ -13,18 +13,18 @@ export const DateSelector = ({ placeholder, checkInType }) => {
     });
   };
 
- /* const handleDateFocus = () => {
+  const handleDateFocus = () => {
     dateDispatch({
       type: "DATE_FOCUS",
     });
-  };*/
+  };
 
   return (
     <DatePicker
       className="search-dest input"
       selected={checkInType === "in" ? checkInDate : checkOutDate}
       onChange={(date) => handleDateChange(date)}
-      //onFocus={handleDateFocus}
+      onFocus={handleDateFocus}
       dateFormat="dd/MM/yyyy"
       placeholderText="Add Dates"
       minDate={new Date()}
