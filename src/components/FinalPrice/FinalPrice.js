@@ -1,18 +1,18 @@
 import "./FinalPrice.css";
-// import { useDate, useAuth, useAlert } from "../../context";
-// import { DateSelector } from "../DateSelector/DateSelector";
-//import { useNavigate } from "react-router-dom";
+import { useDate, useAuth, useAlert } from "../../context";
+import { DateSelector } from "../DateSelector/DateSelector";
+import { useNavigate } from "react-router-dom";
 
 export const FinalPrice = ({ singleHotel }) => {
   const { _id, price, rating } = singleHotel;
 
-  /*const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const { guests, dateDispatch, checkInDate, checkOutDate } = useDate();
 
-  const { setAlert } = useAlert();
+  //const { setAlert } = useAlert();
 
-  const { accessToken, authDispatch } = useAuth();
+ // const { accessToken, authDispatch } = useAuth();
 
   const handleGuestChange = (event) => { 
     dateDispatch({
@@ -21,7 +21,7 @@ export const FinalPrice = ({ singleHotel }) => {
     });
   };
 
-  const handleReserveClick = () => {
+  /*const handleReserveClick = () => {
     if (!checkInDate) {
       setAlert({
         open: true,
@@ -64,26 +64,26 @@ export const FinalPrice = ({ singleHotel }) => {
         <div className="grid-container-two-col selected-dates">
           <div className="checkin loc-container">
             <label className="label">Check in</label>
-            {/*<DateSelector checkInType="in" />*/}
+            <DateSelector checkInType="in" />
           </div>
           <div className="checkin loc-container">
             <label className="label">Check Out</label>
-            {/*<DateSelector checkInType="out" />*/}
+            <DateSelector checkInType="out" />
           </div>
         </div>
         <div className="guests gutter-sm">
           <p>GUESTS</p>
-         {/* {guests <= 0 ? (
+          {guests <= 0 ? (
             <input
               className="guest-count-input"
               type="number"
               placeholder="Add Guests"
-              //value={guests}
+              value={guests}
               onChange={handleGuestChange}
             />
           ) : (
             <span>{guests} guests</span>
-          )}*/}
+          )}
         </div>
       </div>
       <div>

@@ -8,13 +8,13 @@ export const Categories = () => {
     const [categories, setCategories] = useState([]);
     const { hotelCategory, setHotelCategory } = useCategory();
 
-    // const { filterDispatch } = useFilter();
+    const { filterDispatch } = useFilter();
 
-    /*const handleFilterClick = () => {
+    const handleFilterClick = () => {
         filterDispatch({
             type: "SHOW_FILTER_MODAL",
         });
-    };*/
+    };
 
     useEffect(() => {(async () => {
             try {
@@ -43,7 +43,7 @@ export const Categories = () => {
             <div>
                 <button
                     className="button btn-filter d-flex align-center gap-small cursor-pointer"
-                    // onClick={handleFilterClick}
+                    onClick={handleFilterClick}
                 >
                     <span className="material-icons-outlined">filter_alt</span>
                     <span>Filter</span>

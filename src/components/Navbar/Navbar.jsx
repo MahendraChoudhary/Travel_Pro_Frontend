@@ -6,7 +6,7 @@ export const Navbar = ({route}) => {
   const { destination, dateDispatch, checkInDate, checkOutDate, guests } =
     useDate();
 
-  const { authDispatch, accessToken } = useAuth();
+  // const { authDispatch, accessToken } = useAuth();
 
   const handleSearchClick = () => {
     dateDispatch({
@@ -14,7 +14,7 @@ export const Navbar = ({route}) => {
     });
   };
 
-  const handleAuthClick = () => {
+  /*const handleAuthClick = () => {
     if (accessToken) {
       authDispatch({
         type: "SHOW_DROP_DOWN_OPTIONS"
@@ -25,13 +25,13 @@ export const Navbar = ({route}) => {
       });
     }
 
-  };
+  };*/
 
   return (
     <header className="heading d-flex align-center">
       <h1 className="heading-1">
         <Link className="link" to="/">
-          TravelO
+          TravelPrO
         </Link>
       </h1>
       {
@@ -60,7 +60,9 @@ export const Navbar = ({route}) => {
       </div>
       }
       
-      <nav className="d-flex align-center gap-large" onClick={handleAuthClick}>
+      <nav className="d-flex align-center gap-large" 
+      // onClick={handleAuthClick}
+      >
         <div className="nav d-flex align-center cursor-pointer">
           <span className="material-icons-outlined profile-option menu">
             menu
