@@ -6,13 +6,13 @@ import { useNavigate } from "react-router-dom";
 export const FinalPrice = ({ singleHotel }) => {
   const { _id, price, rating } = singleHotel;
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { guests, dateDispatch, checkInDate, checkOutDate } = useDate();
 
-  //const { setAlert } = useAlert();
+  const { setAlert } = useAlert();
 
- // const { accessToken, authDispatch } = useAuth();
+  const { accessToken, authDispatch } = useAuth();
 
   const handleGuestChange = (event) => { 
     dateDispatch({
@@ -21,7 +21,7 @@ export const FinalPrice = ({ singleHotel }) => {
     });
   };
 
-  /*const handleReserveClick = () => {
+  const handleReserveClick = () => {
     if (!checkInDate) {
       setAlert({
         open: true,
@@ -47,7 +47,7 @@ export const FinalPrice = ({ singleHotel }) => {
         type: "SHOW_AUTH_MODAL"
       })
     }
-  };*/
+  };
 
   return (
     <div className="price-details-container d-flex direction-column gap shadow">
@@ -89,7 +89,7 @@ export const FinalPrice = ({ singleHotel }) => {
       <div>
         <button
           className="button btn-reserve btn-primary cursor"
-          //onClick={handleReserveClick}
+          onClick={handleReserveClick}
         >
           Reserve
         </button>

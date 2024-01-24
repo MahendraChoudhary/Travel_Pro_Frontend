@@ -7,7 +7,7 @@ export const SearchResults = () => {
   const { destination } = useDate();
   const { hotelCategory } = useCategory();
   const [hotels, setHotels] = useState([]);
-  //const { alert } = useAlert();
+  const { alert } = useAlert();
 
   useEffect(() => {
     (async () => {
@@ -41,7 +41,7 @@ export const SearchResults = () => {
           <h3>Nothing Found</h3>
         )}
       </section>
-      {/*{alert.open && <Alert />}*/}
+      {alert.open && <Alert />}
     </Fragment>
   );
 };

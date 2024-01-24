@@ -39,8 +39,8 @@ export const Home = () => {
     isCancelable,
   } = useFilter();
 
-  /*const { isAuthModalOpen, isDropDownModalOpen } = useAuth();
-  const { alert } = useAlert();*/
+  const { isAuthModalOpen, isDropDownModalOpen } = useAuth();
+  const { alert } = useAlert();
 
   useEffect(() => {
     (async () => {
@@ -111,7 +111,7 @@ export const Home = () => {
           }
           endMessage={<p className="alert-text">You have seen it all</p>}
         >
-        <main className="main d-flex align-center wrap gap-larger">
+          <main className="main d-flex align-center wrap gap-larger">
             {filteredHotelsByCancelation &&
               filteredHotelsByCancelation.map((hotel) => (
                 <HotelCard key={hotel._id} hotel={hotel} />
@@ -121,11 +121,11 @@ export const Home = () => {
       ) : (
         <></>
       )}
+      {isDropDownModalOpen && <ProfileDropDown />}
       {isSearchModalOpen && <SearchStayWithDate />}
       {isFilterModalOpen && <Filter />}
-      {/*{isDropDownModalOpen && <ProfileDropDown />}
       {isAuthModalOpen && <AuthModal />}
-      {alert.open && <Alert />}*/}
+      {alert.open && <Alert />}
     </div>
   );
 };
