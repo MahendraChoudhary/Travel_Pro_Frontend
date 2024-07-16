@@ -26,7 +26,7 @@ export const SingleHotel = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://travel-pro-app.cyclic.app/api/hotels/${id}`
+          `https://travel-pro-backend-mxkp.onrender.com/api/hotels/${id}`
         );
         setSingleHotel(data);
       } catch (err) {

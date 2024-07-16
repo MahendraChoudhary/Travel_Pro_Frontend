@@ -3,7 +3,7 @@ import axios from "axios";
 export const signupHandler = async (username, number, email, password, setAlert) => {
   try {
     const data = await axios.post(
-      "https://travel-pro-app.cyclic.app/api/auth/register",
+      "https://travel-pro-backend-mxkp.onrender.com/api/auth/register",
       {
         username: username,
         number: number,

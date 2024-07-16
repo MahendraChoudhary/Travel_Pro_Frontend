@@ -5,7 +5,7 @@ export const loginHandler = async (number, password, setAlert) => {
     const {
       data: { accessToken, username },
     } = await axios.post(
-      "https://travel-pro-app.cyclic.app/api/auth/login",
+      "https://travel-pro-backend-mxkp.onrender.com/api/auth/login",
       {
         number: number,
         password: password,

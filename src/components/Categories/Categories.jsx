@@ -19,7 +19,7 @@ export const Categories = () => {
     useEffect(() => {(async () => {
             try {
                 const { data } = await axios.get(
-                    "https://travel-pro-app.cyclic.app/api/category"
+                    "https://travel-pro-backend-mxkp.onrender.com/api/category"
                 );
                 setCategories(data);
             } catch (err) {
